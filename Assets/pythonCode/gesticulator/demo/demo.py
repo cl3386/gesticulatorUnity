@@ -4,6 +4,7 @@ import subprocess
 
 import torch
 import librosa
+import sys
 
 from gesticulator.model.model import GesticulatorModel
 from gesticulator.interface.gesture_predictor import GesturePredictor
@@ -11,9 +12,9 @@ from gesticulator.visualization.motion_visualizer.generate_videos import visuali
 
 def main():
     # 0. Check feature type based on the model
-    # cwd = os.getcwd()
-    # print("cwd: ", cwd)
-    # print("sys.path: ", sys.path)
+    cwd = os.getcwd()
+    print("cwd: ", cwd)
+    print("sys.path: ", sys.path)
     # return cwd
     # os.chdir("C:/Users/CY/Desktop/desktop/pythonRuntime/Assets/pythonCode/gesticulator/demo")
 
@@ -51,13 +52,15 @@ def main():
 
     visualize(motion.detach(), "temp.bvh", "temp.npy", "temp.mp4", 
                 start_t = 0, end_t = motion_length_sec, 
-                data_pipe_dir = 'C:/Users/CY/Desktop/desktop/pythonRuntime/Assets/pythonCode/gesticulator/gesticulator/utils/data_pipe.sav')
+                data_pipe_dir = '../gesticulator/utils/data_pipe.sav')
 
     # Add the audio to the video
     command = f"ffmpeg -y -i {args.audio} -i temp.mp4 -c:v libx264 -c:a libvorbis -loglevel quiet -shortest {args.video_out}"
     subprocess.call(command.split())
 
     print("\nGenerated video:", args.video_out)
+
+    os.chdir("C:/Users/CY/Desktop/desktop/pythonRuntime")
 
     # Copy temporary files to Asset Folder
     # import os.path
@@ -117,22 +120,21 @@ def truncate_audio(input_path, target_duration_sec):
 
 def parse_args():
     parser = ArgumentParser()
-    parser.add_argument('--audio', type=str, default="C:/Users/CY/Desktop/desktop/pythonRuntime/Assets/pythonCode/gesticulator/demo/input/jeremy_howard.wav", help="path to the input speech recording")
-    parser.add_argument('--text', type=str, default="C:/Users/CY/Desktop/desktop/pythonRuntime/Assets/pythonCode/gesticulator/demo/input/jeremy_howard.json",
+    parser.add_argument('--audio', type=str, default="input/jeremy_howard.wav", help="path to the input speech recording")
+    parser.add_argument('--text', type=str, default="input/jeremy_howard.json",
                         help="one of the following: "
                              "1) path to a time-annotated JSON transcription (this is what the model was trained with) "
                              "2) path to a plaintext transcription, or " 
                              "3) the text transcription itself (as a string)")
-    parser.add_argument('--video_out', '-video', type=str, default="C:/Users/CY/Desktop/desktop/pythonRuntime/Assets/pythonCode/gesticulator/demo/output/generated_motion.mp4",
+    parser.add_argument('--video_out', '-video', type=str, default="output/generated_motion.mp4",
                         help="the path where the generated video will be saved.")
-    parser.add_argument('--model_file', '-model', type=str, default="C:/Users/CY/Desktop/desktop/pythonRuntime/Assets/pythonCode/gesticulator/demo/models/default.ckpt",
+    parser.add_argument('--model_file', '-model', type=str, default="models/default.ckpt",
                         help="path to a pretrained model checkpoint")
-    parser.add_argument('--mean_pose_file', '-mean_pose', type=str, default="C:/Users/CY/Desktop/desktop/pythonRuntime/Assets/pythonCode/gesticulator/gesticulator/utils/mean_pose.npy",
+    parser.add_argument('--mean_pose_file', '-mean_pose', type=str, default="../gesticulator/utils/mean_pose.npy",
                         help="path to the mean pose in the dataset (saved as a .npy file)")
     
     return parser.parse_args()
 
 if __name__ == "__main__":
     # args = parse_args()
-    
     main()

@@ -133,7 +133,6 @@ GameObject:
   m_Component:
   - component: {fileID: 510949112}
   - component: {fileID: 510949113}
-  - component: {fileID: 510949114}
   m_Layer: 0
   m_Name: gesticulator
   m_TagString: Untagged
@@ -157,18 +156,6 @@ Transform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &510949113
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 510949111}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc3f375ca60400f4695775e23eb079c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &510949114
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

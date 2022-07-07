@@ -37,15 +37,16 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Gesticulator.cs" />
-     <None Include="Assets\pythonCode\gesticulator\demo\input\jeremy_howard.txt" />
-     <None Include="Assets\pythonCode\gesticulator\gesticulator\visualization\motion_visualizer.egg-info\SOURCES.txt" />
-     <None Include="Assets\pythonCode\gesticulator\gesticulator\visualization\motion_visualizer.egg-info\dependency_links.txt" />
-     <None Include="Assets\pythonCode\gesticulator\gesticulator\visualization\motion_visualizer.egg-info\top_level.txt" />
-     <None Include="Assets\pythonCode\gesticulator\gesticulator.egg-info\SOURCES.txt" />
-     <None Include="Assets\pythonCode\gesticulator\gesticulator\visualization\motion_visualizer.egg-info\requires.txt" />
-     <None Include="Assets\pythonCode\gesticulator\gesticulator.egg-info\top_level.txt" />
-     <None Include="Assets\pythonCode\gesticulator\gesticulator\requirements.txt" />
-     <None Include="Assets\pythonCode\gesticulator\gesticulator.egg-info\dependency_links.txt" />
+     <None Include="Assets\pythonCode\demo\input\jeremy_howard.txt" />
+     <None Include="Assets\pythonCode\gesticulator.egg-info\top_level.txt" />
+     <None Include="Assets\pythonCode\gesticulator\visualization\motion_visualizer.egg-info\SOURCES.txt" />
+     <None Include="Assets\pythonCode\gesticulator\visualization\motion_visualizer.egg-info\top_level.txt" />
+     <None Include="Assets\pythonCode\gesticulator\visualization\motion_visualizer.egg-info\requires.txt" />
+     <None Include="Assets\pythonCode\gesticulator\visualization\motion_visualizer.egg-info\dependency_links.txt" />
+     <None Include="Assets\pythonCode\gesticulator.egg-info\SOURCES.txt" />
+     <None Include="Assets\pythonCode\gesticulator\requirements_old.txt" />
+     <None Include="Assets\pythonCode\gesticulator.egg-info\dependency_links.txt" />
+     <None Include="Assets\pythonCode\gesticulator\requirements.txt" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2022.1.2f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
