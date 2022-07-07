@@ -55,6 +55,7 @@ public class Gesticulator : MonoBehaviour
                      Path.Combine(PYTHON_HOME, @"Lib\site-packages"),  
                     // 개인 패키지 폴더
                     @"C:\Users\CY\Desktop\desktop\pythonRuntime\Assets\pythonCode",
+                    // @"C:\Users\CY\Desktop\desktop\pythonRuntime\Assets\pythonCode\demo",
                     @"C:\Users\CY\Desktop\desktop\pythonRuntime\Assets\pythonCode\gesticulator",
                     @"C:\Users\CY\Desktop\desktop\pythonRuntime\Assets\pythonCode\gesticulator\visualization"
             }
@@ -66,8 +67,8 @@ public class Gesticulator : MonoBehaviour
         using (Py.GIL())
         {
 
-            dynamic demo = Py.Import("demo.democs");   // It uses  PythonEngine.PythonPath    
-            dynamic motionPythonArray = demo.main();
+            // dynamic demo = Py.Import("demo.democs");   // It uses  PythonEngine.PythonPath    
+            // dynamic motionPythonArray = demo.main();
 
 
             //  dynamic pysys = Py.Import("sys");   // import sys module from  PythonEngine.PythonPath 
@@ -104,39 +105,38 @@ public class Gesticulator : MonoBehaviour
             // }
 
 
-            // string text = "Deep learning is an algorithm inspired by how the human brain works, and as a result it's an algorithm which has no theoretical limitations on what it can do. The more data you give it and the more computation time you give it, the better it gets. The New York Times also showed in this article another extraordinary result of deep learning which I'm going to show you now. It shows that computers can listen and understand.";
-            // dynamic librosa = Py.Import("librosa");  // import a package
-            // dynamic audio_sample_rate = librosa.load(@"C:\Users\CY\Desktop\desktop\pythonRuntime\Assets\pythonCode\gesticulator\demo\input\jeremy_howard.wav");
+            string text = "Deep learning is an algorithm inspired by how the human brain works, and as a result it's an algorithm which has no theoretical limitations on what it can do. The more data you give it and the more computation time you give it, the better it gets. The New York Times also showed in this article another extraordinary result of deep learning which I'm going to show you now. It shows that computers can listen and understand.";
+            dynamic librosa = Py.Import("librosa");  // import a package
+            dynamic audio_sample_rate = librosa.load(@"C:\Users\CY\Desktop\desktop\pythonRuntime\Assets\pythonCode\demo\input\jeremy_howard.wav");
 
-            // var audio = audio_sample_rate[0];
-            // // np.array audio =  audio_sample_rate[0];  or dynamic audio = audio_sample_rate[0]
-            // int sample_rate = audio_sample_rate[1];
+            var audio = audio_sample_rate[0];
+            // np.array audio =  audio_sample_rate[0];  or dynamic audio = audio_sample_rate[0]
+            int sample_rate = audio_sample_rate[1];
 
-            // dynamic democs = Py.Import("demo.democs");
+            dynamic democs = Py.Import("demo.democs");
 
-            // motionPythonArray = democs.main(audio, text, sample_rate);
-
-
+            dynamic motionPythonArray = democs.main(audio, text, sample_rate);
+            PyList motionPyList = PyList.AsList(motionPythonArray);
 
 
             // motionPyList = PyList.AsList(motionPythonArray);
 
-            // Debug.Log("\n\n Print Python List  in Console:  Passing input to gesticulator from csharp\n");
+            Debug.Log("\n\n Print Python List  in Console:  Passing input to gesticulator from csharp\n");
 
 
-            // for (int i = 0; i < 520; i++)
-            // {
-            //     Console.WriteLine("{0}: \n", i);
-            //     for (int j = 0; j < 45; j++)
-            //     {
-            //         //motionArray[i,j] = (float)motionPythonList[i][j];
-            //         Debug.Log($"{motionPyList[i][j]} \t");
+            for (int i = 0; i < 520; i++)
+            {
+                Console.WriteLine("{0}: \n", i);
+                for (int j = 0; j < 45; j++)
+                {
+                    //motionArray[i,j] = (float)motionPythonList[i][j];
+                    Debug.Log($"{motionPyList[i][j]} \t");
 
 
 
-            //     }
+                }
 
-            //     Debug.Log("\n");
+                Debug.Log("\n");
 
             }
             // using GIL( Py.GIL() )
@@ -145,6 +145,7 @@ public class Gesticulator : MonoBehaviour
             PythonEngine.Shutdown();
 
         }
+    }
     }
 
 

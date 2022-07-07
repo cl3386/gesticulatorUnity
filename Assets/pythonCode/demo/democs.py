@@ -31,11 +31,11 @@ from gesticulator.visualization.motion_visualizer.generate_videos import visuali
 #     subprocess.check_call([sys.executable] + cmd.split())''
 
 
-def  main(args_audio, args_text, sample_rate):
+def  main(audio, text, sample_rate):
 #def main(args):
     # 0. Check feature type based on the model
 
-    # os.chdir("D:/Dropbox/metaverse/gesticulator/demo");
+    # os.chdir("Assets\pythonCode");
 
     # print( "os.getcwd:" + os.getcwd())
 
@@ -153,7 +153,7 @@ def parse_args():
                              "3) the text transcription itself (as a string)")
     parser.add_argument('--video_out', '-video', type=str, default="output/generated_motion.mp4",
                         help="the path where the generated video will be saved.")
-    parser.add_argument('--model_file', '-model', type=str, default="../models/default.ckpt",
+    parser.add_argument('--model_file', '-model', type=str, default="models/default.ckpt",
                         help="path to a pretrained model checkpoint")
     parser.add_argument('--mean_pose_file', '-mean_pose', type=str, default="../gesticulator/utils/mean_pose.npy",
                         help="path to the mean pose in the dataset (saved as a .npy file)")
